@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<include file="struts-default.xml"/>
+
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.action.extension" value="do" />
+	<constant name="struts.objectFactory.spring.autoWire" value="auto" />
+	
+	<include file="struts/menu.xml"/>
+	<include file="struts/user.xml"/>
+	<include file="struts/role.xml"/>
+	<include file="struts/roleuser.xml"/>
+	<include file="struts/rolemenuauth.xml"/>
+	<include file="struts/systypeval.xml"/>
+	
+</struts>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans classpath:/org/springframework/beans/factory/xml/spring-beans-4.0.xsd
+				http://www.springframework.org/schema/context classpath:/org/springframework/context/config/spring-context-4.0.xsd
+				http://www.springframework.org/schema/aop classpath:/org/springframework/aop/config/spring-aop-4.0.xsd
+				http://www.springframework.org/schema/tx classpath:/org/springframework/transaction/config/spring-tx-4.0.xsd">
+				
+    <bean id="userBiz" class="org.cjf.biz.impl.UserBizImpl" scope="prototype">
+        <property name="dao" ref="dao" />
+    </bean>
+    
+	<bean id="loginActionBean" class="org.cjf.action.user.UserLoginAction" scope="prototype">
+		<property name="biz" ref="userBiz" />
+	</bean>
+	
+	<bean id="loginClientAction" class="org.cjf.action.user.UserLoginClientAction" scope="prototype">
+		<property name="biz" ref="userBiz" />
+	</bean>
+	
+	<bean id="logoutClientAction" class="org.cjf.action.user.UserLogoutClientAction" scope="prototype">
+	</bean>
+	
+	<bean id="createUserActionBean" class="org.cjf.action.user.UserCreateAction" scope="prototype">
+		<property name="biz" ref="userBiz" />
+	</bean>
+	
+	<bean id="removeUserActionBean" class="org.cjf.action.user.UserRemoveAction" scope="prototype">
+		<property name="biz" ref="userBiz" />
+	</bean>
+	
+	<bean id="getOneUserActionBean" class="org.cjf.action.user.UserGetOneAction" scope="prototype">
+		<property name="biz" ref="userBiz" />
+	</bean>
+	
+	<bean id="getListUserActionBean" class="org.cjf.action.user.UserGetListAction" scope="prototype">
+		<property name="biz" ref="userBiz" />
+	</bean>
+	
+	<bean id="modifyUserActionBean" class="org.cjf.action.user.UserModifyAction" scope="prototype">
+		<property name="biz" ref="userBiz" />
+	</bean>
+	
+	<!-- 获取用户所属角色的权限 -->
+	<bean id="roleMenuPermissionBiz" class="org.cjf.biz.impl.RoleMenuPermissionBizImpl" scope="prototype">
+        <property name="dao" ref="dao" />
+    </bean>
+    
+    <bean id="getListRoleMenuPermissionActionBean" class="org.cjf.action.menu.MenuGetListRoleMenuPermissionAction" scope="prototype">
+		<property name="biz" ref="roleMenuPermissionBiz" />
+	</bean>
+	
+	<!-- 启用、禁用多个用户 -->
+	<bean id="disableUsersActionBean" class="org.cjf.action.user.ExDisableUsersAction" scope="prototype">
+		<property name="biz" ref="userBiz" />
+    </bean>
+    
+    <bean id="enableUsersActionBean" class="org.cjf.action.user.ExEnableUsersAction" scope="prototype">
+    	<property name="biz" ref="userBiz" />
+    </bean>
+    
+    <bean id="userHeadImageUploadBean" class="org.cjf.action.user.UserHeadImageUpload" scope="prototype">
+    	<property name="biz" ref="userBiz" />
+    </bean>
+	
+</beans>

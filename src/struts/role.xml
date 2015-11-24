@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="Role" extends="struts-default" namespace="/">
+		<global-results>
+			<result name="input">/json.jsp</result>
+    		<result name="error">/json.jsp</result>
+    		<result name="login">/json.jsp</result>
+    		<result name="success">/json.jsp</result>
+		</global-results> 
+	
+    	<action name="createRole" class="createRoleActionBean" />
+    	<action name="removeRole" class="removeRoleActionBean" /> 
+    	<action name="getOneRole" class="getOneRoleActionBean" />
+    	<action name="getListRole" class="getListRoleActionBean" />
+    	<action name="modifyRole" class="modifyRoleActionBean" />
+    	
+    	<action name="disableRoles" class="disableRolesActionBean" />
+    	<action name="enableRoles" class="enableRolesActionBean" />
+    	
+    	<action name="roleSaveAs" class="roleAndUsersSaveAsActionBean" />
+    	 
+	</package>	
+</struts>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans classpath:/org/springframework/beans/factory/xml/spring-beans-4.0.xsd
+				http://www.springframework.org/schema/context classpath:/org/springframework/context/config/spring-context-4.0.xsd
+				http://www.springframework.org/schema/aop classpath:/org/springframework/aop/config/spring-aop-4.0.xsd
+				http://www.springframework.org/schema/tx classpath:/org/springframework/transaction/config/spring-tx-4.0.xsd">
+				
+    <bean id="roleBiz" class="org.cjf.biz.impl.BizImpl" scope="prototype">
+        <property name="dao" ref="dao" />
+    </bean>
+    
+	<bean id="createRoleActionBean" class="org.cjf.action.role.RoleCreateAction" scope="prototype">
+		<property name="biz" ref="roleBiz" />
+	</bean>
+	
+	<bean id="removeRoleActionBean" class="org.cjf.action.role.RoleRemoveAction" scope="prototype">
+		<property name="biz" ref="roleBiz" />
+	</bean>
+	
+	<bean id="getOneRoleActionBean" class="org.cjf.action.role.RoleGetOneAction" scope="prototype">
+		<property name="biz" ref="roleBiz" />
+	</bean>
+	
+	<bean id="getListRoleActionBean" class="org.cjf.action.role.RoleGetListAction" scope="prototype">
+		<property name="biz" ref="roleBiz" />
+	</bean>
+	
+	<bean id="modifyRoleActionBean" class="org.cjf.action.role.RoleModifyAction" scope="prototype">
+		<property name="biz" ref="roleBiz" />
+	</bean>
+	
+	<bean id="disableRolesActionBean" class="org.cjf.action.role.ExDisableRolesAction" scope="prototype">
+		<property name="biz" ref="roleBiz" />
+    </bean>
+    
+    <bean id="enableRolesActionBean" class="org.cjf.action.role.ExEnableRolesAction" scope="prototype">
+    	<property name="biz" ref="roleBiz" />
+    </bean>
+    
+    <bean id="roleBizEx" class="org.cjf.biz.impl.RoleBizImpl" scope="prototype">
+        <property name="dao" ref="dao" />
+    </bean>
+    
+    <bean id="roleAndUsersSaveAsActionBean" class="org.cjf.action.role.ExRoleAndUsersSaveAsAction" scope="prototype">
+    	<property name="biz" ref="roleBizEx" />
+    	<property name="roleUserDao" ref="dao" />
+    </bean>
+	
+</beans>

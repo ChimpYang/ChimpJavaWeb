@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="User" extends="struts-default" namespace="/">
+		<global-results>
+			<result name="input">/json.jsp</result>
+    		<result name="error">/json.jsp</result>
+    		<result name="login">/json.jsp</result>
+    		<result name="success">/json.jsp</result>
+		</global-results> 
+	
+		<!-- 
+		如果与Spring集成，则class不能写class路径，而必须写spring配置文件中的bean名称
+    	-->
+    	<action name="login" class="loginActionBean">
+    		<result name="login">/login.jsp</result>
+    		<result name="input">/login.jsp</result>
+    		<!-- develop -->
+    		<result name="success" type="redirect">/MyApp/index.jsp</result>
+    		<!-- deploy -->
+    		<!-- 
+    		<result name="success">/index.jsp</result>
+    		-->
+    	</action> 
+    	
+    	<action name="loginClient" class="loginClientAction" />
+    	<action name="logoutClient" class="logoutClientAction" />
+    	
+    	<action name="createUser" class="createUserActionBean" />
+    	<action name="removeUser" class="removeUserActionBean" /> 
+    	<action name="getOneUser" class="getOneUserActionBean" />
+    	<action name="getListUser" class="getListUserActionBean" />
+    	<action name="modifyUser" class="modifyUserActionBean" />
+    	
+    	<action name="disableUsers" class="disableUsersActionBean" />
+    	<action name="enableUsers" class="enableUsersActionBean" />
+    	
+    	<action name="uploadUserHeadImage" class="userHeadImageUploadBean">
+    	</action>
+    	
+	</package>	
+</struts>

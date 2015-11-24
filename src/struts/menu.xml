@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="Menu" extends="struts-default" namespace="/">
+		<global-results>
+			<result name="input">/json.jsp</result>
+    		<result name="error">/json.jsp</result>
+    		<result name="login">/json.jsp</result>
+    		<result name="success">/json.jsp</result>
+		</global-results> 
+		
+		<action name="getListRoleMenuPermission" class="getListRoleMenuPermissionActionBean" />
+		<action name="getMenuTree" class="menuGetTreeNodeActionBean" />
+		<action name="updateMenuOrder" class="menuModifyOrderActionBean" />
+		
+		<action name="modifyMenu" class="menuModifyActionBean" />
+		<action name="createMenu" class="menuCreateActionBean" />
+		
+	</package>
+</struts>

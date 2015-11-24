@@ -1,0 +1,9 @@
+1. 如果出现调用Action，提示找不到方法index(),是因为引用了struts的rest plugin,去掉就好了
+
+2. struts.xml里action的class应写成spring里对应bean的id 。只有这样spring容器才会IOC
+
+3. 出现Exception
+   Invocation of destroy method 'close' failed on bean with name 'batchSession': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+   将<bean id="batchSession" class="org.mybatis.spring.SqlSessionTemplate"> 增加 scope="prototype"
+   
+4.

@@ -1,0 +1,4 @@
+1. 在页面显示session信息
+用struts标签： <s:property value="#session.hello"  />搜索
+用EL表达式：${session.hello}
+用java代码：<%=session.getAttribute("hello")%>
